@@ -1,9 +1,10 @@
 <script setup>
 import { ref } from 'vue'
-import { storeToRefs } from 'pinia';
+import { createPinia, storeToRefs } from 'pinia';
 import { usePostsStore } from '../store/usePosts'
+const pinia = createPinia();
 
-const posts = usePostsStore();
+const posts = usePostsStore(pinia);
 
 const { counter, name } = storeToRefs(posts);
 
