@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useUsersStore = defineStore('users', {
   state: () => ({
-    users: null
+    usersData: null
   }),
   getters: {
   },
@@ -12,8 +12,8 @@ export const useUsersStore = defineStore('users', {
         .then(response => response.json())
         .then((json) => {
           console.log(json)
-          this.users = json;
-          console.log(this.users[1])
+          this.usersData = json;
+          console.log(this.usersData[1])
         })
     }
   }

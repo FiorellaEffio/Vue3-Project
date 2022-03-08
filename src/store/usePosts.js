@@ -3,7 +3,6 @@ import { defineStore } from 'pinia'
 export const usePostsStore = defineStore('posts', {
   state: () => ({
     counter: 0,
-    name: 'Erik',
     postsData: null
   }),
   getters: {
@@ -12,12 +11,6 @@ export const usePostsStore = defineStore('posts', {
     }
   },
   actions: {
-    reset() {
-      this.counter = 0;
-    },
-    addOne() {
-      this.counter++;
-    },
     setPostsData() {
       fetch('https://jsonplaceholder.typicode.com/posts')
         .then(response => response.json())

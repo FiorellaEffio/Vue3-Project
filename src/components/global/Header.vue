@@ -6,7 +6,6 @@
 <template>
   <router-link to="/">Posts</router-link>
   <router-link to="/users">Users</router-link>
-  <router-link to="/post/28">Post28</router-link>
 </template>
 
 <style>
