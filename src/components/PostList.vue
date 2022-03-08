@@ -6,7 +6,7 @@ const pinia = createPinia();
 
 const posts = usePostsStore(pinia);
 
-const { counter, name } = storeToRefs(posts);
+const { counter, name, postsData } = storeToRefs(posts);
 
 function add(value) {
   posts.$patch({
@@ -26,26 +26,11 @@ const count = ref(0)
   <h4>{{ counter }}</h4>
   <button @click="posts.addOne">Click me</button>
   <button @click="add(15)">Click to add 15</button>
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-    +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-  </p>
-
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Documentation
-    </a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Documentation</a>
-  </p>
 
   <button type="button" @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+
+  <button @click="posts.setPostsData">Get Posts</button>
+  <div v-for="(index, i) in postsData" :key="i">{{index + 'lalala' + i}}<br><br></div>
 <div class="bg-white shadow overflow-hidden sm:rounded-lg">
   <div class="px-4 py-5 sm:px-6">
     <h3 class="text-lg leading-6 font-medium text-gray-900">Applicant Information</h3>
