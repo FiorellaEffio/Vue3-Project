@@ -7,8 +7,8 @@ export const useCommentsStore = defineStore('comments', {
   getters: {
   },
   actions: {
-    setCommentsData() {
-      fetch('https://jsonplaceholder.typicode.com/comments')
+    setCommentsData(postId) {
+      fetch(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
         .then(response => response.json())
         .then((json) => {
           console.log(json)

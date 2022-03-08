@@ -24,7 +24,7 @@ export const usePostsStore = defineStore('posts', {
         .then((json) => {
           console.log(json)
           this.postsData = json;
-          console.log(this.postsData[1])
+          console.log(this.postsData[1].id)
         })
     }
   }
