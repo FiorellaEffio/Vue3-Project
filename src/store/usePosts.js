@@ -15,9 +15,7 @@ export const usePostsStore = defineStore('posts', {
       fetch('https://jsonplaceholder.typicode.com/posts')
         .then(response => response.json())
         .then((json) => {
-          console.log(json)
           this.postsData = json;
-          console.log(this.postsData[1].id)
         })
     }
   }

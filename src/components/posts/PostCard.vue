@@ -12,9 +12,9 @@ const props = defineProps({
 })
 const avatarImg = new URL(`../../assets/images/${props.data.userId}.jpg`, import.meta.url).href
 setTimeout(() => {
-  console.log("this is the first message")
+  // console.log("get user info by id")
   const userInfoPost = users.getUserById(props.data.userId);
-  console.log(userInfoPost)
+  // console.log(userInfoPost)
 }, 5000);
 
 </script>
