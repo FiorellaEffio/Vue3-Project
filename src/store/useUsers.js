@@ -5,15 +5,16 @@ export const useUsersStore = defineStore('users', {
     usersData: null
   }),
   getters: {
+    getUserById: (state) => {
+      return (userId) => state.usersData.find((user) => user.id === userId)
+    },
   },
   actions: {
     setUsersData() {
       fetch('https://jsonplaceholder.typicode.com/users')
         .then(response => response.json())
         .then((json) => {
-          console.log(json)
           this.usersData = json;
-          console.log(this.usersData[1])
         })
     }
   }
