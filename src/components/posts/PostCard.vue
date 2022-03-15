@@ -1,22 +1,25 @@
 <script setup>
-import { createPinia, storeToRefs } from 'pinia';
+// import { createPinia, storeToRefs } from 'pinia';
 import { useUsersStore } from '../../store/useUsers'
-const pinia = createPinia();
+import { watch, ref } from 'vue';
+// const pinia = createPinia();
 
-const users = useUsersStore(pinia);
+const usersStore = useUsersStore();
 
-const { usersData, getUserById } = storeToRefs(users);
-users.setUsersData();
+// const { usersData, getUserById } = storeToRefs(users);
+// users.setUsersData();
 const props = defineProps({
   data: Object
 })
-const avatarImg = new URL(`../../assets/images/${props.data.userId}.jpg`, import.meta.url).href
-setTimeout(() => {
-  // console.log("get user info by id")
-  const userInfoPost = users.getUserById(props.data.userId);
-  // console.log(userInfoPost)
-}, 5000);
 
+const avatarImg = new URL(`../../assets/images/${props.data?.userId}.jpg`, import.meta.url).href 
+// setTimeout(() => {
+  // console.log("get user info by id")
+ const userInfoPost = usersStore.getUserById(props.data.userId);
+  // console.log(userInfoPost)
+// }, 5000);
+
+// watch(props.data, () => {console.log("watch", props.data)}, {immediate: true})
 </script>
 
 <template>
@@ -44,10 +47,10 @@ setTimeout(() => {
       </div>
       <div class="border-b border-gray-100"></div> 
       <div class='text-left text-gray-600 font-semibold text-lg mb-2 mt-2 mx-3 px-2'>
-        {{ data.title }}
+        {{ data?.title }}
       </div>
       <div class='text-left text-gray-500 font-thin text-sm mb-6 mx-3 px-2'>
-        {{ data.body }}  
+        {{ data?.body }}  
       </div>
       <div class="flex justify-start mb-4 border-t border-gray-100">
           <div class="flex w-full mt-1 pt-2 pl-5">

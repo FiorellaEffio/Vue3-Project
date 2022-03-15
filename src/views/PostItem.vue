@@ -6,8 +6,8 @@
   import PostCard from '../components/posts/PostCard.vue'
   import Comment from '../components/posts/Comment.vue'
 
-  const pinia = createPinia();
-  const comments = useCommentsStore(pinia);
+  // const pinia = createPinia();
+  const comments = useCommentsStore();
   const { commentsData, postData } = storeToRefs(comments);
   
   const route = useRoute()
@@ -17,6 +17,8 @@
 </script>
 
 <template>
+<Suspense>
+  <div>
   <PostCard
     :data="postData"
   />
@@ -25,7 +27,7 @@
       <div class="flex w-full">
           <div class="mt-3 mx-5 flex flex-row">
               <div class='flex text-gray-700 font-normal text-sm rounded-md mb-2 mr-4 items-center'>
-                Comments:<div class="ml-1 text-gray-400 font-thin text-ms"> {{ commentsData.length }}</div>
+                Comments:<div class="ml-1 text-gray-400 font-thin text-ms"> {{ commentsData?.length }}</div>
               </div>
           </div>
           <div class="mt-3 mx-5 w-full flex justify-end">
@@ -53,4 +55,7 @@
       />
     </div>
   </div>
+  </div>
+  
+</Suspense>
 </template>

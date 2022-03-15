@@ -3,5 +3,7 @@ import PostList from '../components/posts/PostList.vue'
 </script>
 
 <template>  
-  <PostList msg="Hello Vue 3 + Vite" />
+  <Suspense>
+    <PostList msg="Hello Vue 3 + Vite" />
+  </Suspense>
 </template>

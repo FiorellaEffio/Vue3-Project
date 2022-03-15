@@ -2,11 +2,11 @@ import { defineStore } from 'pinia'
 
 export const useUsersStore = defineStore('users', {
   state: () => ({
-    usersData: null
+    usersData: []
   }),
   getters: {
     getUserById: (state) => {
-      return (userId) => state.usersData.find((user) => user.id === userId)
+      return (userId) => state.usersData?.find((user) => user.id === userId)
     },
     getLocations: (state) => {
       const locations = []

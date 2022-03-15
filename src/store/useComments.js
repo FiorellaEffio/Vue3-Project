@@ -2,8 +2,8 @@ import { defineStore } from 'pinia'
 
 export const useCommentsStore = defineStore('comments', {
   state: () => ({
-    postData: null,
-    commentsData: null
+    postData: [],
+    commentsData: []
   }),
   getters: {
   },
